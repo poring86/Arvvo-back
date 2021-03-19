@@ -1,10 +1,13 @@
-require('./database/mongodb')
+require('./databases/mongodb')
+require('./databases/sql')
 const express = require('express')
 const app = express()
-
+const cors = require('cors')
+const routes = require('./routes')
 const port = process.env.PORT
 
-const routes = require('./routes')
+app.use(cors())
+
 
 app.use(routes)
 
